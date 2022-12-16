@@ -18,14 +18,12 @@ describe('Add to Cart', () => {
 
         cy.get("#product-0").should('be.visible');
 
+        cy.wait(3000);
+
         cy.get("#product-0 #add-to-cart").contains("Add To Cart").click();
-
-        cy.wait(6000);
-
-       cy.get("#top-cart").click();
-
+ 
         cy.get(".snipcart-cart-header").contains(' Cart summary ').should('be.visible');
-        cy.get(".snipcart-item-line__header").should('contain', ' Quality Fitted Hat ');
+        cy.get(".snipcart-item-line__title").should('contain', ' Quality Fitted Hat ');
         cy.get(".snipcart-item-quantity__total-price").should('contain', ' $30.00 ');
         cy.get(".snipcart-base-button__label").contains(' Checkout ').should('be.visible');
 
@@ -34,28 +32,31 @@ describe('Add to Cart', () => {
 
     it('Verify the user can add multiple icon to cart', () => {
 
-        ///
         cy.get(".chakra-heading").should('contain', 'Products');
 
         cy.get("#product-0").should('be.visible');
 
+        cy.wait(3000);
+
         cy.get("#product-0").contains("Add To Cart").click();
+
+        cy.wait(3000);
+
+        cy.get(".snipcart-modal__close-title").contains(" Continue shopping ").click();
 
         cy.get("#product-1").should('be.visible');
 
-        cy.get("#product-0 #add-to-cart").contains("Add To Cart").click();
+        cy.wait(3000);
 
-        cy.wait(6000);
-
-        cy.get("#top-cart").click();
+        cy.get("#product-1 #add-to-cart").contains("Add To Cart").click();
 
         cy.get(".snipcart-cart-header").contains(' Cart summary ').should('be.visible');
-        cy.get(".snipcart-item-line__header").should('contain', ' Quality Fitted Hat ');
+        cy.get(".snipcart-item-line__product").should('contain', ' Quality Fitted Hat ');
         cy.get(".snipcart-item-quantity__total-price").should('contain', ' $30.00 ');
        
-        cy.get(".snipcart-cart-header").should('contain', ' Quality Trucker Hat ');
+        cy.get(".snipcart-item-line__product").should('contain', ' Quality Trucker Hat ');
         cy.get(".snipcart-item-quantity__total-price").should('contain', ' $24.00 ');
-        cy.get(".snipcart-base-button__label").contains(' Checkout ').should('be.visible');
+        cy.get(".snipcart-base-button__label").scrollIntoView().contains(' Checkout ').should('be.visible');
 
     })
 
@@ -65,13 +66,13 @@ describe('Add to Cart', () => {
 
         cy.get("#product-2").should('be.visible');
 
+        cy.wait(3000);
+
         cy.get("#product-2").click();
 
         cy.get(".chakra-heading").contains('Quality Mousepad').should('be.visible');
         cy.get(".chakra-stack").contains('JIALONG New Upgraded Version Large Mouse Pad Desk Mat Comfortable Mousepad with Personalized Design Extended Size 35.4 X 15.7X 0.12 inches for Laptop, Computer and PC ').should('be.visible');
         cy.get(".css-1ccau2i").contains('computer').should('be.visible');
-        
-        //cy.get("#product-1").should('be.visible');
 
         cy.get("#add-to-cart").contains("Add To Cart").click();
 
