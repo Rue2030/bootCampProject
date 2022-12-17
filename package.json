@@ -11,5 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.1.0"
+  },
+  "dependencies": {
+    "cypress-iframe": "^1.0.1",
+    "install": "^0.13.0"
   }
 }
