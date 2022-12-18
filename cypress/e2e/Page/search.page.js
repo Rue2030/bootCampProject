@@ -8,7 +8,7 @@ class search{
 
     //Action Methods
         searchItem(term){
-            cy.get(this.search).type(term)
+            cy.get(this.searchs).type(term)
         }
 
         filterItem(value){
