@@ -18,6 +18,12 @@ class Billing{
     get billingInfo() { return ('.snipcart-checkout-step__col iframe') }
     get itemTotal() { return ('.snipcart-summary-fees__item iframe') }
     get thankYou() { return ('snipcart__font--subtitle iframe') }
+    get itemText() { return ('.chakra-heading') }
+    get checkout() { return ("[type='button']") }
+
+    
+
+    
     
     
 

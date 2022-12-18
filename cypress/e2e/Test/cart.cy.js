@@ -1,22 +1,20 @@
 import billingPage from '../page/billing.page'
+import addCart from '../Page/addToCart.page'
 
 describe('Cart test cases', () => {
     beforeEach(() => {
       cy.visit('/')
         
       //Login to account
-        cy.get("#login-text").should('contain', 'Welcome to the Automation Camp Store');
-        cy.get("#signInOrRegister").click();    
-        cy.get("[name='email']").type("rrrtester011@test.com");
-        cy.get("[name='password']").type("Password@1");
-        cy.get("[name='submit']").click();
+      cy.get(auth.registerBtn).click();
+      auth.signIn('rrrtester011@test.com', 'Password@1')
 
-        cy.get("#product-0").should('be.visible');
+        cy.get(addCart.product1).should('be.visible');
         cy.wait(3000);
-        cy.get("#product-0").click();
+        cy.get(addCart.product1).click();
         cy.wait(3000);
-        cy.get("#add-to-cart").contains('Add To Cart').click();
-        cy.get("[type='button']").contains(' Checkout ').click();
+        cy.get(addCart.addToCart).contains('Add To Cart').click();
+        cy.get(billingPage.checkout).contains(' Checkout ').click();
 
     })
   
@@ -24,28 +22,31 @@ describe('Cart test cases', () => {
 
         cy.wait(3000);
 
+        //click the continue button
         cy.get(billingPage.continueBtn).click();
 
+        //aasert field validation
         cy.get(billingPage.errorMsg).contains(' This field is required ').should('be.visible');
     })
 
     it('Verify the check out process', () => {
 
+        //enter billing info
         billingPage.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375');
 
+        //enter credit card info
         cy.iframe(billingPage.payment).find('#card-number').type('4242 4242 4242 4242')
         cy.iframe(billingPage.payment).find('#expiry-date').type('1211')
         cy.iframe(billingPage.payment).find('#cvv').type('424')
-
         cy.get(billingPage.continueBtn).click()
 
         //assertion
-        // cy.iframe('[class="aut-iframe"]').find(billingPage.thankYou).should('contain', 'Thank you for your order');
-        // cy.iframe('[class="aut-iframe"]').find(billingPage.itemList).should('contain', ' Quality Fitted Hat ');
-        // cy.iframe('[class="aut-iframe"]').find(billingPage.itemList).should('contain', ' $30.00 ');
-        // cy.iframe('[class="aut-iframe"]').find(billingPage.billingInfo).should('contain', ' Dave Lee ');
-        // cy.iframe('[class="aut-iframe"]').find(billingPage.billingInfo).should('contain', 'dave@test.com');
-        // cy.iframe('[class="aut-iframe"]').find(billingPage.itemTotal).should('contain', ' $30.00 ');
+        cy.get(billingPage.thankYou).should('contain', 'Thank you for your order');
+        cy.get(billingPage.itemList).should('contain', ' Quality Fitted Hat ');
+        cy.get(billingPage.itemList).should('contain', ' $30.00 ');
+        cy.get(billingPage.billingInfo).should('contain', ' Dave Lee ');
+        cy.get(billingPage.billingInfo).should('contain', 'dave@test.com');
+        cy.get(billingPage.itemTotal).should('contain', ' $30.00 ');
         
         
 
@@ -55,17 +56,20 @@ describe('Cart test cases', () => {
 
         cy.wait(3000);
 
+        //enter billing info
         billingPage.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375');
 
+        //enter credit card info
         cy.iframe(billingPage.payment).find('#card-number').type('4242 4242 4242 4242')
         cy.iframe(billingPage.payment).find('#expiry-date').type('1211')
         cy.iframe(billingPage.payment).find('#cvv').type('424')
-
         cy.get(billingPage.continueBtn).click()
 
+        //click the back to home button
         cy.get(billingPage.backBtn).click()
 
-        cy.get('.chakra-heading').contains('Quality Fitted Hat').should('be.visible');
-        cy.get('.chakra-heading').contains('Back to products').should('be.visible');
+        //assert 
+        cy.get(billingPage.itemText).contains('Quality Fitted Hat').should('be.visible');
+        cy.get(billingPage.itemText).contains('Back to products').should('be.visible');
     })
 })
