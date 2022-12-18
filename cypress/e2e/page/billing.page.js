@@ -14,12 +14,13 @@ class Billing{
     get errorMsg() { return ('.snipcart-field-error') }
     get payment() { return ('.snipcart-payment-card-form iframe') }
     get backBtn() { return ('.snipcart-modal__close-title') }
-    get itemList() { return ('.snipcart-cart-summary-items-list iframe') }
-    get billingInfo() { return ('.snipcart-checkout-step__col iframe') }
-    get itemTotal() { return ('.snipcart-summary-fees__item iframe') }
-    get thankYou() { return ('snipcart__font--subtitle iframe') }
+    get itemList() { return ('.snipcart-cart-summary-items-list') }
+    get billingInfo() { return ('.snipcart-checkout-step__col') }
+    get itemTotal() { return ('.snipcart-summary-fees__item') }
+    get thankYou() { return ('snipcart__font--subtitle') }
     get itemText() { return ('.chakra-heading') }
     get checkout() { return ("[type='button']") }
+    get body() { return (".aut-iframe") }
 
     
 
