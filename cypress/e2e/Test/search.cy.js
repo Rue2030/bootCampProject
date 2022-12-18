@@ -1,39 +1,48 @@
+import auth from '../Page/auth.page'
+import search from '../Page/search.page'
+
 describe('Search test cases', () => {
     beforeEach(() => {
       cy.visit('/')
         
       //Login to account
-        cy.get("#login-text").should('contain', 'Welcome to the Automation Camp Store');
-        cy.get("#signInOrRegister").click();    
-        cy.get("[name='email']").type("rrrtester011@test.com");
-        cy.get("[name='password']").type("Password@1");
-        cy.get("[name='submit']").click();
+      cy.get(auth.registerBtn).click();
+      auth.signIn('rrrtester011@test.com', 'Password@1')
 
     })
   
     it('Verify user can search valid item name', () => {
 
-        cy.get('#search').type('Quality Trucker Hat');
+        //search data
+        search.searchItem('Quality Trucker Hat');
 
-        cy.get('.css-12qzrsi').should('contain', 'Quality Trucker Hat');
+        //assert item found
+        cy.get(search.itemsName).should('contain', 'Quality Trucker Hat');
     })
 
     it('Verify user can search invalid item name', () => {
 
-        cy.get('#search').type('No Data');
+        //search value that doesnt exist
+        search.searchItem('No Data');
 
-        cy.get('.css-12qzrsi').should('be.empty');
+        //assert no data found
+        cy.get(search.itemsName).should('be.empty');
 
     })
 
     it('Verify user can search filtered option', () => {
 
-        cy.get('#category').select(1);
-        cy.get('#search').type('Quality Sweatshirt');
-        cy.get('.css-12qzrsi').should('contain', 'Quality Sweatshirt');
+        //filter and search
+        search.filterItem(1)
+        search.searchItem('Quality Sweatshirt');
+        
+        cy.get(search.itemsName).should('contain', 'Quality Sweatshirt');
 
-        cy.get('#search').clear();
-        cy.get('#search').type('Quality Trucker Hat');
-        cy.get('.css-12qzrsi').should('be.empty');
+        //search and search the search field
+        cy.get(search.searchs).clear();
+        search.searchItem('Quality Trucker Hat');
+        
+        //assert its empty
+        cy.get(search.itemsName).should('be.empty');
     })
 })
