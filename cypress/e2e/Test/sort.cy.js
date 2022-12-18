@@ -10,11 +10,6 @@ describe('Search test cases', () => {
       //Login to account
       cy.get(auth.registerBtn).click();
       auth.signIn('rrrtester011@test.com', 'Password@1')
-        // cy.get("#login-text").should('contain', 'Welcome to the Automation Camp Store');
-        // cy.get("#signInOrRegister").click();    
-        // cy.get("[name='email']").type("rrrtester011@test.com");
-        // cy.get("[name='password']").type("Password@1");
-        // cy.get("[name='submit']").click();
 
     })
   
