@@ -2,7 +2,7 @@ import billingPage from '../page/billing.page'
 import addCart from '../Page/addToCart.page'
 import auth from '../Page/auth.page'
 
-describe('Cart test cases', () => {
+describe('Cart Checkout test cases', () => {
     beforeEach(() => {
       cy.visit('/')
         

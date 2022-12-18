@@ -2,7 +2,7 @@ import contactData from '../Data/contact.data'
 import contactPage from '../Page/contact.page'
 import auth from '../Page/auth.page'
 
-describe('Search test cases', () => {
+describe('Contact Form test cases', () => {
     beforeEach(() => {
       cy.visit('/')
         

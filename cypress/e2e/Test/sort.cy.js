@@ -3,7 +3,7 @@ import itemPage from '../Page/item.page'
 import auth from '../Page/auth.page'
 
 
-describe('Search test cases', () => {
+describe('Sort test cases', () => {
     beforeEach(() => {
       cy.visit('/')
         
