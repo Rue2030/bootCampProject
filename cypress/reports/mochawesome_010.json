@@ -1,0 +1,152 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2022-12-18T03:57:31.485Z",
+    "end": "2022-12-18T03:58:38.959Z",
+    "duration": 67474,
+    "testsRegistered": 3,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4e42df2f-6fe1-4ab8-a32a-ebf068fbd86c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\cart.cy.js",
+      "file": "cypress\\e2e\\test\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "157e8a11-196f-4521-9523-ef744bc62464",
+          "title": "Cart test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify checkout without billing information",
+              "fullTitle": "Cart test cases Verify checkout without billing information",
+              "timedOut": null,
+              "duration": 20126,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //click the continue button\ncy.get(_billing.default.continueBtn).click(); //aasert field validation\ncy.get(_billing.default.errorMsg).contains(' This field is required ').should('be.visible');",
+              "err": {},
+              "uuid": "1442299a-7636-4b8a-a6c1-c56f2cebac4d",
+              "parentUUID": "157e8a11-196f-4521-9523-ef744bc62464",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the check out process",
+              "fullTitle": "Cart test cases Verify the check out process",
+              "timedOut": null,
+              "duration": 20788,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //assertion\n//cy.wait(3000);\n//cy.iframe(billingPage.body).find(billingPage.thankYou).should('contain', 'Thank you for your order');\n// cy.get(billingPage.itemList).should('contain', ' Quality Fitted Hat ');\n// cy.get(billingPage.itemList).should('contain', ' $30.00 ');\n// cy.get(billingPage.billingInfo).should('contain', ' Dave Lee ');\n// cy.get(billingPage.billingInfo).should('contain', 'dave@test.com');\n// cy.get(billingPage.itemTotal).should('contain', ' $30.00 ');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"province\"] input`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"province\"] input`, but never found it.\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:11)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:36:20)",
+                "diff": null
+              },
+              "uuid": "ed400e94-9542-4743-9f92-a6b45a0b9f7d",
+              "parentUUID": "157e8a11-196f-4521-9523-ef744bc62464",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the can navigate but from Details page",
+              "fullTitle": "Cart test cases Verify the can navigate but from Details page",
+              "timedOut": null,
+              "duration": 26244,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //click the back to home button\ncy.get(_billing.default.backBtn).click(); //assert \ncy.get(_billing.default.itemText).contains('Quality Fitted Hat').should('be.visible');\ncy.get(_billing.default.itemText).contains('Back to products').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"province\"] input`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"province\"] input`, but never found it.\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:11)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:62:20)",
+                "diff": null
+              },
+              "uuid": "0f4356a8-439c-4727-b92f-b1559b9369cd",
+              "parentUUID": "157e8a11-196f-4521-9523-ef744bc62464",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1442299a-7636-4b8a-a6c1-c56f2cebac4d"
+          ],
+          "failures": [
+            "ed400e94-9542-4743-9f92-a6b45a0b9f7d",
+            "0f4356a8-439c-4727-b92f-b1559b9369cd"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 67158,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

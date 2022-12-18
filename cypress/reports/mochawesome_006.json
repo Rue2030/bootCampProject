@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-18T03:37:58.740Z",
+    "end": "2022-12-18T03:38:38.725Z",
+    "duration": 39985,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c712539a-7f1c-44dd-a8ae-5fea74afc79c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\sort.cy.js",
+      "file": "cypress\\e2e\\test\\sort.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3ed2721c-f0c2-496c-b5d2-756bd60a4e10",
+          "title": "Search test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify user can filter by category",
+              "fullTitle": "Search test cases Verify user can filter by category",
+              "timedOut": null,
+              "duration": 12876,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_item.default.category).select(1);\ncy.wait(3000);\ncy.get(_item.default.itemText).should('contain', 'shirt');\ncy.get(_item.default.itemText).contains('hat').should('not.exist');\ncy.get(_item.default.itemText).contains('pants').should('not.exist');\ncy.get(_item.default.itemText).contains('shoes').should('not.exist');\ncy.get(_item.default.itemText).contains('couch').should('not.exist');\ncy.get(_item.default.itemText).contains('laptop').should('not.exist');",
+              "err": {},
+              "uuid": "b06709ae-5a32-4b0a-a577-8e1e834cc755",
+              "parentUUID": "3ed2721c-f0c2-496c-b5d2-756bd60a4e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be able to sort product list from A to Z",
+              "fullTitle": "Search test cases should be able to sort product list from A to Z",
+              "timedOut": null,
+              "duration": 13515,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_item.default.category).select(1);\ncy.wait(3000);\n_item.default.selectSort(_items.default.sort['A to Z']); //Sort data list from Z to A based on name\n\n_items.default.items.sort();\ncy.wait(3000);\ncy.get(_item.default.itemsName).each(($elem, index) => {\n  expect($elem.text()).equal(_items.default.items[index].name);\n});",
+              "err": {},
+              "uuid": "6581aa64-8db9-4747-b8cb-3ce1bc2961e4",
+              "parentUUID": "3ed2721c-f0c2-496c-b5d2-756bd60a4e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be able to sort product list from Z to A",
+              "fullTitle": "Search test cases should be able to sort product list from Z to A",
+              "timedOut": null,
+              "duration": 13179,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_item.default.category).select(1);\ncy.wait(3000);\n_item.default.selectSort(_items.default.sort['Z to A']); //Sort data list from Z to A based on name\n\n_items.default.items.sort().reverse();\ncy.wait(3000);\ncy.get(_item.default.itemsName).each(($elem, index) => {\n  expect($elem.text()).equal(_items.default.items[index].name);\n});",
+              "err": {},
+              "uuid": "3a7f40cb-9076-4523-abb1-a26175c2b95e",
+              "parentUUID": "3ed2721c-f0c2-496c-b5d2-756bd60a4e10",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b06709ae-5a32-4b0a-a577-8e1e834cc755",
+            "6581aa64-8db9-4747-b8cb-3ce1bc2961e4",
+            "3a7f40cb-9076-4523-abb1-a26175c2b95e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39570,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

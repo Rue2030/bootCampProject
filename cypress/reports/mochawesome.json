@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-18T03:32:11.490Z",
+    "end": "2022-12-18T03:33:07.311Z",
+    "duration": 55821,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "38ddff39-5fba-464d-80bf-02254eb63913",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\addToCart.cy.js",
+      "file": "cypress\\e2e\\test\\addToCart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "10d9a764-4669-4eeb-9db2-499a49aa8010",
+          "title": "Add to Cart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify user can add single item to cart",
+              "fullTitle": "Add to Cart Verify user can add single item to cart",
+              "timedOut": null,
+              "duration": 19584,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//assert product page and product is visible\ncy.get(_addToCart.default.productHeading).should('contain', 'Products');\ncy.get(_addToCart.default.product1).should('be.visible');\n_addToCart.default.addSingle(); //assertions\n\ncy.get(_addToCart.default.cartSummary).contains(' Cart summary ').should('be.visible');\ncy.get(_addToCart.default.itemTitle).should('contain', ' Quality Fitted Hat ');\ncy.get(_addToCart.default.itemPrice).should('contain', ' $30.00 ');\ncy.get(_addToCart.default.checkout).contains(' Checkout ').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-cart-header`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-cart-header`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/test/addToCart.cy.js:23:11)",
+                "diff": null
+              },
+              "uuid": "f74b6a88-dc82-4f56-a313-160b01c8e5d0",
+              "parentUUID": "10d9a764-4669-4eeb-9db2-499a49aa8010",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user can add multiple icon to cart",
+              "fullTitle": "Add to Cart Verify the user can add multiple icon to cart",
+              "timedOut": null,
+              "duration": 17994,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//assert product header and product are visible\ncy.get(_addToCart.default.productHeading).should('contain', 'Products');\ncy.get(_addToCart.default.product1).should('be.visible');\n_addToCart.default.addMultiple(); //assertions for product 1\n\ncy.get(_addToCart.default.cartSummary).contains(' Cart summary ').should('be.visible');\ncy.get(_addToCart.default.itemTitle).should('contain', ' Quality Fitted Hat ');\ncy.get(_addToCart.default.itemPrice).should('contain', ' $30.00 '); //assertions for product 2\ncy.get(_addToCart.default.itemTitle).should('contain', ' Quality Trucker Hat ');\ncy.get(_addToCart.default.itemPrice).should('contain', ' $24.00 ');\ncy.get(_addToCart.default.checkout).scrollIntoView().contains(' Checkout ').should('be.visible');",
+              "err": {},
+              "uuid": "4a36d7ab-460b-4b6f-8392-e66c7d028801",
+              "parentUUID": "10d9a764-4669-4eeb-9db2-499a49aa8010",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify and item can be added to cart from the Product description page",
+              "fullTitle": "Add to Cart Verify and item can be added to cart from the Product description page",
+              "timedOut": null,
+              "duration": 17828,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//assert product header and product are visible\ncy.get(_addToCart.default.productHeading).should('contain', 'Products');\ncy.get(_addToCart.default.product3).should('be.visible');\ncy.wait(3000);\n_addToCart.default.addProductDescript(); //assertion\n\ncy.get(_addToCart.default.cartSummary).should('be.visible');\ncy.get(_addToCart.default.itemTitle).should('contain', ' Quality Mousepad ');\ncy.get(_addToCart.default.itemPrice).should('contain', ' $20.00 ');\ncy.get(_addToCart.default.checkout).contains(' Checkout ').should('be.visible');",
+              "err": {},
+              "uuid": "121e0945-c0f8-49e1-8f06-2d36aed22a5a",
+              "parentUUID": "10d9a764-4669-4eeb-9db2-499a49aa8010",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4a36d7ab-460b-4b6f-8392-e66c7d028801",
+            "121e0945-c0f8-49e1-8f06-2d36aed22a5a"
+          ],
+          "failures": [
+            "f74b6a88-dc82-4f56-a313-160b01c8e5d0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 55406,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

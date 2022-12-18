@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-18T03:33:28.531Z",
+    "end": "2022-12-18T03:34:06.588Z",
+    "duration": 38057,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bb3d7dcf-8e6d-484e-9f5a-bff4be486f39",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\authentication.cy.js",
+      "file": "cypress\\e2e\\test\\authentication.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "289ccc5a-4a62-4b24-a801-c2ce4a99709a",
+          "title": "Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the user can sign in with email and password",
+              "fullTitle": "Authentication Verify the user can sign in with email and password",
+              "timedOut": null,
+              "duration": 22698,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Signing up for an account\n_auth.default.signUp(randomEmail, 'Password@1'); //signout\n\n_auth.default.signOut(); //Log into Application after signing up\n\ncy.get(\"#signInOrRegister\").click();\n_auth.default.signIn(randomEmail, 'Password@1'); //assertions\n\ncy.get(\".chakra-heading\").should('contain', 'Automation Camp Store').should('be.visible');\ncy.get(\".chakra-heading\").should('contain', 'Products').should('be.visible');\ncy.get(_auth.default.signOutBtn).should('be.visible'); //cy.get(\"#top-sign-out\").click();\n_auth.default.signOut();",
+              "err": {},
+              "uuid": "a4fc7526-dde0-45f3-9dc6-b6e260c39d22",
+              "parentUUID": "289ccc5a-4a62-4b24-a801-c2ce4a99709a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user cant sign in with invalid email and password",
+              "fullTitle": "Authentication Verify the user cant sign in with invalid email and password",
+              "timedOut": null,
+              "duration": 4464,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Log into Application after signing up\n_auth.default.signIn('oka@gmail.com', 'Password'); //error message assertion\n\ncy.get(_auth.default.errorMsg).should('contain', 'Wrong email or password.');",
+              "err": {},
+              "uuid": "d6ab3c6d-dda0-4482-83e6-afcaa22439ab",
+              "parentUUID": "289ccc5a-4a62-4b24-a801-c2ce4a99709a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user can sign up with email and password",
+              "fullTitle": "Authentication Verify the user can sign up with email and password",
+              "timedOut": null,
+              "duration": 10667,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Sign Up with email and password\n_auth.default.signUp(randomEmail2, 'Password@1'); //assertions to ensure user is signed up\n\ncy.get(\".chakra-heading\").should('contain', 'Automation Camp Store').should('be.visible');\ncy.get(\".chakra-heading\").should('contain', 'Products').should('be.visible');\ncy.get(_auth.default.signOutBtn).should('be.visible');\ncy.get(\"#top-contact\").should('be.visible'); //signout\n_auth.default.signOut();",
+              "err": {},
+              "uuid": "63b89321-a519-41d0-bcdb-f9ab90a4777e",
+              "parentUUID": "289ccc5a-4a62-4b24-a801-c2ce4a99709a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a4fc7526-dde0-45f3-9dc6-b6e260c39d22",
+            "d6ab3c6d-dda0-4482-83e6-afcaa22439ab",
+            "63b89321-a519-41d0-bcdb-f9ab90a4777e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 37829,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

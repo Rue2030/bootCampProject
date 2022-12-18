@@ -1,0 +1,1258 @@
+{
+  "stats": {
+    "suites": 12,
+    "tests": 36,
+    "passes": 23,
+    "pending": 0,
+    "failures": 13,
+    "start": "2022-12-18T03:32:11.490Z",
+    "end": "2022-12-18T04:00:57.831Z",
+    "duration": 626709,
+    "testsRegistered": 36,
+    "passPercent": 63.888888888888886,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bb3d7dcf-8e6d-484e-9f5a-bff4be486f39",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\authentication.cy.js",
+      "file": "cypress\\e2e\\test\\authentication.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "289ccc5a-4a62-4b24-a801-c2ce4a99709a",
+          "title": "Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the user can sign in with email and password",
+              "fullTitle": "Authentication Verify the user can sign in with email and password",
+              "timedOut": null,
+              "duration": 22698,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Signing up for an account\n_auth.default.signUp(randomEmail, 'Password@1'); //signout\n\n_auth.default.signOut(); //Log into Application after signing up\n\ncy.get(\"#signInOrRegister\").click();\n_auth.default.signIn(randomEmail, 'Password@1'); //assertions\n\ncy.get(\".chakra-heading\").should('contain', 'Automation Camp Store').should('be.visible');\ncy.get(\".chakra-heading\").should('contain', 'Products').should('be.visible');\ncy.get(_auth.default.signOutBtn).should('be.visible'); //cy.get(\"#top-sign-out\").click();\n_auth.default.signOut();",
+              "err": {},
+              "uuid": "a4fc7526-dde0-45f3-9dc6-b6e260c39d22",
+              "parentUUID": "289ccc5a-4a62-4b24-a801-c2ce4a99709a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user cant sign in with invalid email and password",
+              "fullTitle": "Authentication Verify the user cant sign in with invalid email and password",
+              "timedOut": null,
+              "duration": 4464,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Log into Application after signing up\n_auth.default.signIn('oka@gmail.com', 'Password'); //error message assertion\n\ncy.get(_auth.default.errorMsg).should('contain', 'Wrong email or password.');",
+              "err": {},
+              "uuid": "d6ab3c6d-dda0-4482-83e6-afcaa22439ab",
+              "parentUUID": "289ccc5a-4a62-4b24-a801-c2ce4a99709a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user can sign up with email and password",
+              "fullTitle": "Authentication Verify the user can sign up with email and password",
+              "timedOut": null,
+              "duration": 10667,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Sign Up with email and password\n_auth.default.signUp(randomEmail2, 'Password@1'); //assertions to ensure user is signed up\n\ncy.get(\".chakra-heading\").should('contain', 'Automation Camp Store').should('be.visible');\ncy.get(\".chakra-heading\").should('contain', 'Products').should('be.visible');\ncy.get(_auth.default.signOutBtn).should('be.visible');\ncy.get(\"#top-contact\").should('be.visible'); //signout\n_auth.default.signOut();",
+              "err": {},
+              "uuid": "63b89321-a519-41d0-bcdb-f9ab90a4777e",
+              "parentUUID": "289ccc5a-4a62-4b24-a801-c2ce4a99709a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a4fc7526-dde0-45f3-9dc6-b6e260c39d22",
+            "d6ab3c6d-dda0-4482-83e6-afcaa22439ab",
+            "63b89321-a519-41d0-bcdb-f9ab90a4777e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 37829,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "19f4439c-446c-4272-82e0-a36d35ac70c0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\cart.cy.js",
+      "file": "cypress\\e2e\\test\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e4c2c376-891d-484d-b39f-a7606f02abc8",
+          "title": "Cart test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify checkout without billing information",
+              "fullTitle": "Cart test cases Verify checkout without billing information",
+              "timedOut": null,
+              "duration": 19342,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //click the continue button\ncy.get(_billing.default.continueBtn).click(); //aasert field validation\ncy.get(_billing.default.errorMsg).contains(' This field is required ').should('be.visible');",
+              "err": {},
+              "uuid": "0148e9c5-cbca-413b-bbac-4b9440964ea6",
+              "parentUUID": "e4c2c376-891d-484d-b39f-a7606f02abc8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the check out process",
+              "fullTitle": "Cart test cases Verify the check out process",
+              "timedOut": null,
+              "duration": 17438,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //assertion\n//cy.wait(3000);\n//cy.iframe(billingPage.body).find(billingPage.thankYou).should('contain', 'Thank you for your order');\n// cy.get(billingPage.itemList).should('contain', ' Quality Fitted Hat ');\n// cy.get(billingPage.itemList).should('contain', ' $30.00 ');\n// cy.get(billingPage.billingInfo).should('contain', ' Dave Lee ');\n// cy.get(billingPage.billingInfo).should('contain', 'dave@test.com');\n// cy.get(billingPage.itemTotal).should('contain', ' $30.00 ');",
+              "err": {
+                "message": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_b1c380cc-a3b6-462e-a5d5-38ec5b3d68b1\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_b1c380cc-a3b6-462e-a5d5-38ec5b3d68b1\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select\n    at Context.select (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:136723:78)\n    at wrapped (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:156314:19)\nFrom Your Spec Code:\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:35)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:36:20)",
+                "diff": null
+              },
+              "uuid": "f3377b0b-5d85-483f-983c-9a488fd5917a",
+              "parentUUID": "e4c2c376-891d-484d-b39f-a7606f02abc8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the can navigate but from Details page",
+              "fullTitle": "Cart test cases Verify the can navigate but from Details page",
+              "timedOut": null,
+              "duration": 22544,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //click the back to home button\ncy.get(_billing.default.backBtn).click(); //assert \ncy.get(_billing.default.itemText).contains('Quality Fitted Hat').should('be.visible');\ncy.get(_billing.default.itemText).contains('Back to products').should('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_509255aa-6d53-4ed8-9bc9-c1b8f652b3f3\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_509255aa-6d53-4ed8-9bc9-c1b8f652b3f3\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select\n    at Context.select (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:136723:78)\n    at wrapped (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:156314:19)\nFrom Your Spec Code:\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:35)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:62:20)",
+                "diff": null
+              },
+              "uuid": "ab522431-2f6f-490f-95cc-d90bf164f599",
+              "parentUUID": "e4c2c376-891d-484d-b39f-a7606f02abc8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0148e9c5-cbca-413b-bbac-4b9440964ea6"
+          ],
+          "failures": [
+            "f3377b0b-5d85-483f-983c-9a488fd5917a",
+            "ab522431-2f6f-490f-95cc-d90bf164f599"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 59324,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "a9627ffb-1424-4ab8-8c2b-7ffe79bd5afd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\contact.cy.js",
+      "file": "cypress\\e2e\\test\\contact.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "80f279c4-23c4-4edc-8075-1680d29c31bd",
+          "title": "Search test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify contact for validation",
+              "fullTitle": "Search test cases Verify contact for validation",
+              "timedOut": null,
+              "duration": 14195,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//click the submit button\ncy.get(_contact2.default.sendBtn).click();\ncy.wait(3000); //assert required fields\ncy.get(_contact2.default.errorMsg).should('contain', 'Field is required!');",
+              "err": {},
+              "uuid": "49f3807b-c56b-433d-83c9-1393d79f8f3a",
+              "parentUUID": "80f279c4-23c4-4edc-8075-1680d29c31bd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify submitting contact form",
+              "fullTitle": "Search test cases Verify submitting contact form",
+              "timedOut": null,
+              "duration": 10546,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//complate contact form\n_contact2.default.contact('Dave', 'Winters', 'winter@gmail.com', 'Help', 'I need help in fixing issue with login'); //assert form was submited successfully\n\ncy.get(_contact2.default.successMsg1).should('contain', 'Message Sent!');\ncy.get(_contact2.default.successMsg2).should('contain', 'Your message has been sent!');",
+              "err": {},
+              "uuid": "a740b954-ac58-434d-ba16-d135712085f1",
+              "parentUUID": "80f279c4-23c4-4edc-8075-1680d29c31bd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify form for user with an invalid email",
+              "fullTitle": "Search test cases Verify form for user with an invalid email",
+              "timedOut": null,
+              "duration": 10156,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//complete contant form\ncy.get(_contact2.default.firstNameField).type('Wayne');\ncy.get(_contact2.default.lastNameField).type('Barry');\ncy.get(_contact2.default.emailField).type('barry@.');\ncy.get(_contact2.default.subjectField).type('Thanks');\ncy.get(_contact2.default.messageField).type('Thank You');\ncy.get(_contact2.default.sendBtn).click(); //assert invalid email message is displayed\ncy.get(_contact2.default.errorMsg).should('contain', 'Email is invalid');",
+              "err": {},
+              "uuid": "8297dd92-05ed-48f9-b117-c03982a618b5",
+              "parentUUID": "80f279c4-23c4-4edc-8075-1680d29c31bd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "49f3807b-c56b-433d-83c9-1393d79f8f3a",
+            "a740b954-ac58-434d-ba16-d135712085f1",
+            "8297dd92-05ed-48f9-b117-c03982a618b5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 34897,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "43c1e585-8db2-4994-99a9-bd7f6b417663",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\productDetails.cy.js",
+      "file": "cypress\\e2e\\test\\productDetails.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0ac994b4-8960-4c1d-b3be-16d4076540d9",
+          "title": "Product Details test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the product on the product details page",
+              "fullTitle": "Product Details test cases Verify the product on the product details page",
+              "timedOut": null,
+              "duration": 17626,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //assert product details on page\ncy.get(_details.default.itemName).contains('Quality Fitted Hat').should('be.visible');\ncy.get(_details.default.itemText).contains('3 Pack Unisex Vintage Washed Distressed Baseball-Cap,Retro Adjustable Dad Hats,Baseball Hat for Men Women').should('be.visible');\ncy.get(_details.default.itemText).contains('30').should('be.visible');\ncy.get(_details.default.category).contains('hat').should('be.visible');\ncy.get(_details.default.addToCart).contains('Add To Cart').should('be.visible');",
+              "err": {},
+              "uuid": "2f8c9e40-43f6-4014-811f-268c6d5d28c5",
+              "parentUUID": "0ac994b4-8960-4c1d-b3be-16d4076540d9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user is able to increase the quantity on product page",
+              "fullTitle": "Product Details test cases Verify the user is able to increase the quantity on product page",
+              "timedOut": null,
+              "duration": 14062,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_details.default.Qty).should('have.value', '1'); //increase quantity in cart\n_details.default.increase(); //assert quantity increase\n\ncy.get(_details.default.Qty).should('have.value', '2');",
+              "err": {},
+              "uuid": "36fe0765-9d95-4f51-95ef-b91f77a22760",
+              "parentUUID": "0ac994b4-8960-4c1d-b3be-16d4076540d9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user can navigate to checkout from product details",
+              "fullTitle": "Product Details test cases Verify the user can navigate to checkout from product details",
+              "timedOut": null,
+              "duration": 16713,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //add item to cart\n_details.default.addCart(); //assert item in cart\n\ncy.get(_details.default.summary).contains(' Cart summary ').should('be.visible');\ncy.get(_details.default.itemTitle).should('contain', ' Quality Fitted Hat ');\ncy.get(_details.default.itemPrice).should('contain', ' $30.00 ');\ncy.get(_details.default.checkout).contains(' Checkout ').should('be.visible');",
+              "err": {},
+              "uuid": "40ad616e-4544-4d85-9cf8-b0c4f3e5f264",
+              "parentUUID": "0ac994b4-8960-4c1d-b3be-16d4076540d9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2f8c9e40-43f6-4014-811f-268c6d5d28c5",
+            "36fe0765-9d95-4f51-95ef-b91f77a22760",
+            "40ad616e-4544-4d85-9cf8-b0c4f3e5f264"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 48401,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "ae979115-6c05-4736-b048-43aef9d31821",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\search.cy.js",
+      "file": "cypress\\e2e\\test\\search.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "26259b93-e650-4ac8-b288-b04c8c1ae841",
+          "title": "Search test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify user can search valid item name",
+              "fullTitle": "Search test cases Verify user can search valid item name",
+              "timedOut": null,
+              "duration": 12851,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//search data\n_search.default.searchItem('Quality Trucker Hat'); //assert item found\n\ncy.get(_search.default.itemsName).should('contain', 'Quality Trucker Hat');",
+              "err": {},
+              "uuid": "6ddd701f-0713-40ea-ab89-dbe4300fc05d",
+              "parentUUID": "26259b93-e650-4ac8-b288-b04c8c1ae841",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify user can search invalid item name",
+              "fullTitle": "Search test cases Verify user can search invalid item name",
+              "timedOut": null,
+              "duration": 8768,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//search value that doesnt exist\n_search.default.searchItem('No Data'); //assert no data found\n\ncy.get(_search.default.itemsName).should('be.empty');",
+              "err": {},
+              "uuid": "e4adb880-50fe-44d2-bbfd-928d0cc63fef",
+              "parentUUID": "26259b93-e650-4ac8-b288-b04c8c1ae841",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify user can search filtered option",
+              "fullTitle": "Search test cases Verify user can search filtered option",
+              "timedOut": null,
+              "duration": 10320,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//filter and search\n_search.default.filterItem(1);\n_search.default.searchItem('Quality Sweatshirt');\ncy.get(_search.default.itemsName).should('contain', 'Quality Sweatshirt'); //search and search the search field\ncy.get(_search.default.searchs).clear();\n_search.default.searchItem('Quality Trucker Hat'); //assert its empty\n\ncy.get(_search.default.itemsName).should('be.empty');",
+              "err": {},
+              "uuid": "0847e1b9-b7a2-4e12-ab21-4c68827856d5",
+              "parentUUID": "26259b93-e650-4ac8-b288-b04c8c1ae841",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6ddd701f-0713-40ea-ab89-dbe4300fc05d",
+            "e4adb880-50fe-44d2-bbfd-928d0cc63fef",
+            "0847e1b9-b7a2-4e12-ab21-4c68827856d5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 31939,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "c712539a-7f1c-44dd-a8ae-5fea74afc79c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\sort.cy.js",
+      "file": "cypress\\e2e\\test\\sort.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3ed2721c-f0c2-496c-b5d2-756bd60a4e10",
+          "title": "Search test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify user can filter by category",
+              "fullTitle": "Search test cases Verify user can filter by category",
+              "timedOut": null,
+              "duration": 12876,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_item.default.category).select(1);\ncy.wait(3000);\ncy.get(_item.default.itemText).should('contain', 'shirt');\ncy.get(_item.default.itemText).contains('hat').should('not.exist');\ncy.get(_item.default.itemText).contains('pants').should('not.exist');\ncy.get(_item.default.itemText).contains('shoes').should('not.exist');\ncy.get(_item.default.itemText).contains('couch').should('not.exist');\ncy.get(_item.default.itemText).contains('laptop').should('not.exist');",
+              "err": {},
+              "uuid": "b06709ae-5a32-4b0a-a577-8e1e834cc755",
+              "parentUUID": "3ed2721c-f0c2-496c-b5d2-756bd60a4e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be able to sort product list from A to Z",
+              "fullTitle": "Search test cases should be able to sort product list from A to Z",
+              "timedOut": null,
+              "duration": 13515,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_item.default.category).select(1);\ncy.wait(3000);\n_item.default.selectSort(_items.default.sort['A to Z']); //Sort data list from Z to A based on name\n\n_items.default.items.sort();\ncy.wait(3000);\ncy.get(_item.default.itemsName).each(($elem, index) => {\n  expect($elem.text()).equal(_items.default.items[index].name);\n});",
+              "err": {},
+              "uuid": "6581aa64-8db9-4747-b8cb-3ce1bc2961e4",
+              "parentUUID": "3ed2721c-f0c2-496c-b5d2-756bd60a4e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be able to sort product list from Z to A",
+              "fullTitle": "Search test cases should be able to sort product list from Z to A",
+              "timedOut": null,
+              "duration": 13179,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_item.default.category).select(1);\ncy.wait(3000);\n_item.default.selectSort(_items.default.sort['Z to A']); //Sort data list from Z to A based on name\n\n_items.default.items.sort().reverse();\ncy.wait(3000);\ncy.get(_item.default.itemsName).each(($elem, index) => {\n  expect($elem.text()).equal(_items.default.items[index].name);\n});",
+              "err": {},
+              "uuid": "3a7f40cb-9076-4523-abb1-a26175c2b95e",
+              "parentUUID": "3ed2721c-f0c2-496c-b5d2-756bd60a4e10",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b06709ae-5a32-4b0a-a577-8e1e834cc755",
+            "6581aa64-8db9-4747-b8cb-3ce1bc2961e4",
+            "3a7f40cb-9076-4523-abb1-a26175c2b95e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39570,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "5e001653-4c31-40af-9d04-df3678362c7b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\cart.cy.js",
+      "file": "cypress\\e2e\\test\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ab1c8048-239e-4e22-b1b7-bae293fdef27",
+          "title": "Cart test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify checkout without billing information",
+              "fullTitle": "Cart test cases Verify checkout without billing information",
+              "timedOut": null,
+              "duration": 20382,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //click the continue button\ncy.get(_billing.default.continueBtn).click(); //aasert field validation\ncy.get(_billing.default.errorMsg).contains(' This field is required ').should('be.visible');",
+              "err": {},
+              "uuid": "42384412-8460-4441-b8c0-3ff5f63f906e",
+              "parentUUID": "ab1c8048-239e-4e22-b1b7-bae293fdef27",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the check out process",
+              "fullTitle": "Cart test cases Verify the check out process",
+              "timedOut": null,
+              "duration": 16267,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //assertion\n//cy.wait(3000);\n//cy.iframe(billingPage.body).find(billingPage.thankYou).should('contain', 'Thank you for your order');\n// cy.get(billingPage.itemList).should('contain', ' Quality Fitted Hat ');\n// cy.get(billingPage.itemList).should('contain', ' $30.00 ');\n// cy.get(billingPage.billingInfo).should('contain', ' Dave Lee ');\n// cy.get(billingPage.billingInfo).should('contain', 'dave@test.com');\n// cy.get(billingPage.itemTotal).should('contain', ' $30.00 ');",
+              "err": {
+                "message": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_f5deb181-72c0-4a57-aa9a-9aa4652c1b40\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_f5deb181-72c0-4a57-aa9a-9aa4652c1b40\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select\n    at Context.select (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:136723:78)\n    at wrapped (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:156314:19)\nFrom Your Spec Code:\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:35)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:36:20)",
+                "diff": null
+              },
+              "uuid": "d236bf53-3c1c-4814-9bac-a81be4fc6fda",
+              "parentUUID": "ab1c8048-239e-4e22-b1b7-bae293fdef27",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the can navigate but from Details page",
+              "fullTitle": "Cart test cases Verify the can navigate but from Details page",
+              "timedOut": null,
+              "duration": 20223,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //click the back to home button\ncy.get(_billing.default.backBtn).click(); //assert \ncy.get(_billing.default.itemText).contains('Quality Fitted Hat').should('be.visible');\ncy.get(_billing.default.itemText).contains('Back to products').should('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_53928375-ed56-442b-adec-5d99cbe42d69\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_53928375-ed56-442b-adec-5d99cbe42d69\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select\n    at Context.select (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:136723:78)\n    at wrapped (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:156314:19)\nFrom Your Spec Code:\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:35)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:62:20)",
+                "diff": null
+              },
+              "uuid": "4dc5cc41-0f0b-4468-86a7-6af2013c48f7",
+              "parentUUID": "ab1c8048-239e-4e22-b1b7-bae293fdef27",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "42384412-8460-4441-b8c0-3ff5f63f906e"
+          ],
+          "failures": [
+            "d236bf53-3c1c-4814-9bac-a81be4fc6fda",
+            "4dc5cc41-0f0b-4468-86a7-6af2013c48f7"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 56872,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "76accc4b-9026-4004-bf3b-342cb6038101",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\cart.cy.js",
+      "file": "cypress\\e2e\\test\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9dc1de6b-820f-4876-9f6f-6f410d10d87a",
+          "title": "Cart test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify checkout without billing information",
+              "fullTitle": "Cart test cases Verify checkout without billing information",
+              "timedOut": null,
+              "duration": 20619,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //click the continue button\ncy.get(_billing.default.continueBtn).click(); //aasert field validation\ncy.get(_billing.default.errorMsg).contains(' This field is required ').should('be.visible');",
+              "err": {},
+              "uuid": "eae46020-81de-42f0-8a66-6f6e1699df84",
+              "parentUUID": "9dc1de6b-820f-4876-9f6f-6f410d10d87a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the check out process",
+              "fullTitle": "Cart test cases Verify the check out process",
+              "timedOut": null,
+              "duration": 17601,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //assertion\n//cy.wait(3000);\n//cy.iframe(billingPage.body).find(billingPage.thankYou).should('contain', 'Thank you for your order');\n// cy.get(billingPage.itemList).should('contain', ' Quality Fitted Hat ');\n// cy.get(billingPage.itemList).should('contain', ' $30.00 ');\n// cy.get(billingPage.billingInfo).should('contain', ' Dave Lee ');\n// cy.get(billingPage.billingInfo).should('contain', 'dave@test.com');\n// cy.get(billingPage.itemTotal).should('contain', ' $30.00 ');",
+              "err": {
+                "message": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_4f4c6686-91ea-4095-abd5-6b1d8a25a98d\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_4f4c6686-91ea-4095-abd5-6b1d8a25a98d\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select\n    at Context.select (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:136723:78)\n    at wrapped (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:156314:19)\nFrom Your Spec Code:\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:35)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:36:20)",
+                "diff": null
+              },
+              "uuid": "091dd476-53e4-47e7-b03b-61cd2e798545",
+              "parentUUID": "9dc1de6b-820f-4876-9f6f-6f410d10d87a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the can navigate but from Details page",
+              "fullTitle": "Cart test cases Verify the can navigate but from Details page",
+              "timedOut": null,
+              "duration": 22556,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //click the back to home button\ncy.get(_billing.default.backBtn).click(); //assert \ncy.get(_billing.default.itemText).contains('Quality Fitted Hat').should('be.visible');\ncy.get(_billing.default.itemText).contains('Back to products').should('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_2726fad7-fe96-4456-b115-9ab18f814cf9\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<input type=\"text\" id=\"province_2726fad7-fe96-4456-b115-9ab18f814cf9\" name=\"province\" class=\"snipcart-input__input snipcart__font--secondary snipcart__font--bold\">`\n\nhttps://on.cypress.io/select\n    at Context.select (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:136723:78)\n    at wrapped (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:156314:19)\nFrom Your Spec Code:\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:35)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:62:20)",
+                "diff": null
+              },
+              "uuid": "67c14ab2-1bd8-4cc8-8845-1dcedae7a341",
+              "parentUUID": "9dc1de6b-820f-4876-9f6f-6f410d10d87a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eae46020-81de-42f0-8a66-6f6e1699df84"
+          ],
+          "failures": [
+            "091dd476-53e4-47e7-b03b-61cd2e798545",
+            "67c14ab2-1bd8-4cc8-8845-1dcedae7a341"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 60776,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "727fd9f9-3535-47c5-a783-886ced0f69fa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\cart.cy.js",
+      "file": "cypress\\e2e\\test\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9eb395ce-7cc6-4e24-8945-5d02f995ff39",
+          "title": "Cart test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify checkout without billing information",
+              "fullTitle": "Cart test cases Verify checkout without billing information",
+              "timedOut": null,
+              "duration": 20362,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //click the continue button\ncy.get(_billing.default.continueBtn).click(); //aasert field validation\ncy.get(_billing.default.errorMsg).contains(' This field is required ').should('be.visible');",
+              "err": {},
+              "uuid": "0342894c-5cd9-4098-9ef8-24e1e477ef1b",
+              "parentUUID": "9eb395ce-7cc6-4e24-8945-5d02f995ff39",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the check out process",
+              "fullTitle": "Cart test cases Verify the check out process",
+              "timedOut": null,
+              "duration": 21212,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //assertion\n//cy.wait(3000);\n//cy.iframe(billingPage.body).find(billingPage.thankYou).should('contain', 'Thank you for your order');\n// cy.get(billingPage.itemList).should('contain', ' Quality Fitted Hat ');\n// cy.get(billingPage.itemList).should('contain', ' $30.00 ');\n// cy.get(billingPage.billingInfo).should('contain', ' Dave Lee ');\n// cy.get(billingPage.billingInfo).should('contain', 'dave@test.com');\n// cy.get(billingPage.itemTotal).should('contain', ' $30.00 ');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-payment-card-form iframe`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-payment-card-form iframe`, but never found it.\n    at Context.frameLoaded (webpack:///./node_modules/cypress-iframe/dist/index.js:79:0)",
+                "diff": null
+              },
+              "uuid": "36b835a7-c075-4192-9119-3ce737aa81c8",
+              "parentUUID": "9eb395ce-7cc6-4e24-8945-5d02f995ff39",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the can navigate but from Details page",
+              "fullTitle": "Cart test cases Verify the can navigate but from Details page",
+              "timedOut": null,
+              "duration": 24940,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //click the back to home button\ncy.get(_billing.default.backBtn).click(); //assert \ncy.get(_billing.default.itemText).contains('Quality Fitted Hat').should('be.visible');\ncy.get(_billing.default.itemText).contains('Back to products').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-payment-card-form iframe`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-payment-card-form iframe`, but never found it.\n    at Context.frameLoaded (webpack:///./node_modules/cypress-iframe/dist/index.js:79:0)",
+                "diff": null
+              },
+              "uuid": "d737896b-409e-4f5f-9a2a-0816de97fcee",
+              "parentUUID": "9eb395ce-7cc6-4e24-8945-5d02f995ff39",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0342894c-5cd9-4098-9ef8-24e1e477ef1b"
+          ],
+          "failures": [
+            "36b835a7-c075-4192-9119-3ce737aa81c8",
+            "d737896b-409e-4f5f-9a2a-0816de97fcee"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 66514,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "4e42df2f-6fe1-4ab8-a32a-ebf068fbd86c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\cart.cy.js",
+      "file": "cypress\\e2e\\test\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "157e8a11-196f-4521-9523-ef744bc62464",
+          "title": "Cart test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify checkout without billing information",
+              "fullTitle": "Cart test cases Verify checkout without billing information",
+              "timedOut": null,
+              "duration": 20126,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //click the continue button\ncy.get(_billing.default.continueBtn).click(); //aasert field validation\ncy.get(_billing.default.errorMsg).contains(' This field is required ').should('be.visible');",
+              "err": {},
+              "uuid": "1442299a-7636-4b8a-a6c1-c56f2cebac4d",
+              "parentUUID": "157e8a11-196f-4521-9523-ef744bc62464",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the check out process",
+              "fullTitle": "Cart test cases Verify the check out process",
+              "timedOut": null,
+              "duration": 20788,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //assertion\n//cy.wait(3000);\n//cy.iframe(billingPage.body).find(billingPage.thankYou).should('contain', 'Thank you for your order');\n// cy.get(billingPage.itemList).should('contain', ' Quality Fitted Hat ');\n// cy.get(billingPage.itemList).should('contain', ' $30.00 ');\n// cy.get(billingPage.billingInfo).should('contain', ' Dave Lee ');\n// cy.get(billingPage.billingInfo).should('contain', 'dave@test.com');\n// cy.get(billingPage.itemTotal).should('contain', ' $30.00 ');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"province\"] input`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"province\"] input`, but never found it.\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:11)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:36:20)",
+                "diff": null
+              },
+              "uuid": "ed400e94-9542-4743-9f92-a6b45a0b9f7d",
+              "parentUUID": "157e8a11-196f-4521-9523-ef744bc62464",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the can navigate but from Details page",
+              "fullTitle": "Cart test cases Verify the can navigate but from Details page",
+              "timedOut": null,
+              "duration": 26244,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //click the back to home button\ncy.get(_billing.default.backBtn).click(); //assert \ncy.get(_billing.default.itemText).contains('Quality Fitted Hat').should('be.visible');\ncy.get(_billing.default.itemText).contains('Back to products').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"province\"] input`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"province\"] input`, but never found it.\n    at Billing.billing (webpack:///./cypress/e2e/page/billing.page.js:42:11)\n    at Context.eval (webpack:///./cypress/e2e/test/cart.cy.js:62:20)",
+                "diff": null
+              },
+              "uuid": "0f4356a8-439c-4727-b92f-b1559b9369cd",
+              "parentUUID": "157e8a11-196f-4521-9523-ef744bc62464",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1442299a-7636-4b8a-a6c1-c56f2cebac4d"
+          ],
+          "failures": [
+            "ed400e94-9542-4743-9f92-a6b45a0b9f7d",
+            "0f4356a8-439c-4727-b92f-b1559b9369cd"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 67158,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "3cc3bc46-566b-4d13-8958-8f06c13a8baa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\cart.cy.js",
+      "file": "cypress\\e2e\\test\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "020a86c6-2054-4588-93ac-b29e22004f04",
+          "title": "Cart test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify checkout without billing information",
+              "fullTitle": "Cart test cases Verify checkout without billing information",
+              "timedOut": null,
+              "duration": 21066,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //click the continue button\ncy.get(_billing.default.continueBtn).click(); //aasert field validation\ncy.get(_billing.default.errorMsg).contains(' This field is required ').should('be.visible');",
+              "err": {},
+              "uuid": "761fe1bb-7c50-4ca2-a96b-c4eb7725f4f9",
+              "parentUUID": "020a86c6-2054-4588-93ac-b29e22004f04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the check out process",
+              "fullTitle": "Cart test cases Verify the check out process",
+              "timedOut": null,
+              "duration": 21475,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //assertion\n//cy.wait(3000);\n//cy.iframe(billingPage.body).find(billingPage.thankYou).should('contain', 'Thank you for your order');\n// cy.get(billingPage.itemList).should('contain', ' Quality Fitted Hat ');\n// cy.get(billingPage.itemList).should('contain', ' $30.00 ');\n// cy.get(billingPage.billingInfo).should('contain', ' Dave Lee ');\n// cy.get(billingPage.billingInfo).should('contain', 'dave@test.com');\n// cy.get(billingPage.itemTotal).should('contain', ' $30.00 ');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-payment-card-form iframe`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-payment-card-form iframe`, but never found it.\n    at Context.frameLoaded (webpack:///./node_modules/cypress-iframe/dist/index.js:79:0)",
+                "diff": null
+              },
+              "uuid": "9cc75e59-5e85-408f-8368-9df2ba65dd0f",
+              "parentUUID": "020a86c6-2054-4588-93ac-b29e22004f04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the can navigate but from Details page",
+              "fullTitle": "Cart test cases Verify the can navigate but from Details page",
+              "timedOut": null,
+              "duration": 25482,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //enter billing info\n_billing.default.billing('Dave Lee', 'dave@test.com', 'WestKings', 'Street', 'Bran', 'Kingston', '58375'); //enter credit card info\n\ncy.iframe(_billing.default.payment).find('#card-number').type('4242 4242 4242 4242');\ncy.iframe(_billing.default.payment).find('#expiry-date').type('1211');\ncy.iframe(_billing.default.payment).find('#cvv').type('424');\ncy.get(_billing.default.continueBtn).click(); //click the back to home button\ncy.get(_billing.default.backBtn).click(); //assert \ncy.get(_billing.default.itemText).contains('Quality Fitted Hat').should('be.visible');\ncy.get(_billing.default.itemText).contains('Back to products').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-payment-card-form iframe`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-payment-card-form iframe`, but never found it.\n    at Context.frameLoaded (webpack:///./node_modules/cypress-iframe/dist/index.js:79:0)",
+                "diff": null
+              },
+              "uuid": "934180d4-e54d-4b0e-9253-9fc85374529b",
+              "parentUUID": "020a86c6-2054-4588-93ac-b29e22004f04",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "761fe1bb-7c50-4ca2-a96b-c4eb7725f4f9"
+          ],
+          "failures": [
+            "9cc75e59-5e85-408f-8368-9df2ba65dd0f",
+            "934180d4-e54d-4b0e-9253-9fc85374529b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 68023,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "38ddff39-5fba-464d-80bf-02254eb63913",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\addToCart.cy.js",
+      "file": "cypress\\e2e\\test\\addToCart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "10d9a764-4669-4eeb-9db2-499a49aa8010",
+          "title": "Add to Cart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify user can add single item to cart",
+              "fullTitle": "Add to Cart Verify user can add single item to cart",
+              "timedOut": null,
+              "duration": 19584,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//assert product page and product is visible\ncy.get(_addToCart.default.productHeading).should('contain', 'Products');\ncy.get(_addToCart.default.product1).should('be.visible');\n_addToCart.default.addSingle(); //assertions\n\ncy.get(_addToCart.default.cartSummary).contains(' Cart summary ').should('be.visible');\ncy.get(_addToCart.default.itemTitle).should('contain', ' Quality Fitted Hat ');\ncy.get(_addToCart.default.itemPrice).should('contain', ' $30.00 ');\ncy.get(_addToCart.default.checkout).contains(' Checkout ').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-cart-header`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-cart-header`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/test/addToCart.cy.js:23:11)",
+                "diff": null
+              },
+              "uuid": "f74b6a88-dc82-4f56-a313-160b01c8e5d0",
+              "parentUUID": "10d9a764-4669-4eeb-9db2-499a49aa8010",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user can add multiple icon to cart",
+              "fullTitle": "Add to Cart Verify the user can add multiple icon to cart",
+              "timedOut": null,
+              "duration": 17994,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//assert product header and product are visible\ncy.get(_addToCart.default.productHeading).should('contain', 'Products');\ncy.get(_addToCart.default.product1).should('be.visible');\n_addToCart.default.addMultiple(); //assertions for product 1\n\ncy.get(_addToCart.default.cartSummary).contains(' Cart summary ').should('be.visible');\ncy.get(_addToCart.default.itemTitle).should('contain', ' Quality Fitted Hat ');\ncy.get(_addToCart.default.itemPrice).should('contain', ' $30.00 '); //assertions for product 2\ncy.get(_addToCart.default.itemTitle).should('contain', ' Quality Trucker Hat ');\ncy.get(_addToCart.default.itemPrice).should('contain', ' $24.00 ');\ncy.get(_addToCart.default.checkout).scrollIntoView().contains(' Checkout ').should('be.visible');",
+              "err": {},
+              "uuid": "4a36d7ab-460b-4b6f-8392-e66c7d028801",
+              "parentUUID": "10d9a764-4669-4eeb-9db2-499a49aa8010",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify and item can be added to cart from the Product description page",
+              "fullTitle": "Add to Cart Verify and item can be added to cart from the Product description page",
+              "timedOut": null,
+              "duration": 17828,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//assert product header and product are visible\ncy.get(_addToCart.default.productHeading).should('contain', 'Products');\ncy.get(_addToCart.default.product3).should('be.visible');\ncy.wait(3000);\n_addToCart.default.addProductDescript(); //assertion\n\ncy.get(_addToCart.default.cartSummary).should('be.visible');\ncy.get(_addToCart.default.itemTitle).should('contain', ' Quality Mousepad ');\ncy.get(_addToCart.default.itemPrice).should('contain', ' $20.00 ');\ncy.get(_addToCart.default.checkout).contains(' Checkout ').should('be.visible');",
+              "err": {},
+              "uuid": "121e0945-c0f8-49e1-8f06-2d36aed22a5a",
+              "parentUUID": "10d9a764-4669-4eeb-9db2-499a49aa8010",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4a36d7ab-460b-4b6f-8392-e66c7d028801",
+            "121e0945-c0f8-49e1-8f06-2d36aed22a5a"
+          ],
+          "failures": [
+            "f74b6a88-dc82-4f56-a313-160b01c8e5d0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 55406,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

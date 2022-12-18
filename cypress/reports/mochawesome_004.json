@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-18T03:36:17.569Z",
+    "end": "2022-12-18T03:37:06.248Z",
+    "duration": 48679,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "43c1e585-8db2-4994-99a9-bd7f6b417663",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\productDetails.cy.js",
+      "file": "cypress\\e2e\\test\\productDetails.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0ac994b4-8960-4c1d-b3be-16d4076540d9",
+          "title": "Product Details test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the product on the product details page",
+              "fullTitle": "Product Details test cases Verify the product on the product details page",
+              "timedOut": null,
+              "duration": 17626,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //assert product details on page\ncy.get(_details.default.itemName).contains('Quality Fitted Hat').should('be.visible');\ncy.get(_details.default.itemText).contains('3 Pack Unisex Vintage Washed Distressed Baseball-Cap,Retro Adjustable Dad Hats,Baseball Hat for Men Women').should('be.visible');\ncy.get(_details.default.itemText).contains('30').should('be.visible');\ncy.get(_details.default.category).contains('hat').should('be.visible');\ncy.get(_details.default.addToCart).contains('Add To Cart').should('be.visible');",
+              "err": {},
+              "uuid": "2f8c9e40-43f6-4014-811f-268c6d5d28c5",
+              "parentUUID": "0ac994b4-8960-4c1d-b3be-16d4076540d9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user is able to increase the quantity on product page",
+              "fullTitle": "Product Details test cases Verify the user is able to increase the quantity on product page",
+              "timedOut": null,
+              "duration": 14062,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_details.default.Qty).should('have.value', '1'); //increase quantity in cart\n_details.default.increase(); //assert quantity increase\n\ncy.get(_details.default.Qty).should('have.value', '2');",
+              "err": {},
+              "uuid": "36fe0765-9d95-4f51-95ef-b91f77a22760",
+              "parentUUID": "0ac994b4-8960-4c1d-b3be-16d4076540d9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the user can navigate to checkout from product details",
+              "fullTitle": "Product Details test cases Verify the user can navigate to checkout from product details",
+              "timedOut": null,
+              "duration": 16713,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3000); //add item to cart\n_details.default.addCart(); //assert item in cart\n\ncy.get(_details.default.summary).contains(' Cart summary ').should('be.visible');\ncy.get(_details.default.itemTitle).should('contain', ' Quality Fitted Hat ');\ncy.get(_details.default.itemPrice).should('contain', ' $30.00 ');\ncy.get(_details.default.checkout).contains(' Checkout ').should('be.visible');",
+              "err": {},
+              "uuid": "40ad616e-4544-4d85-9cf8-b0c4f3e5f264",
+              "parentUUID": "0ac994b4-8960-4c1d-b3be-16d4076540d9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2f8c9e40-43f6-4014-811f-268c6d5d28c5",
+            "36fe0765-9d95-4f51-95ef-b91f77a22760",
+            "40ad616e-4544-4d85-9cf8-b0c4f3e5f264"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 48401,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
