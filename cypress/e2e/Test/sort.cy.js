@@ -1,34 +1,38 @@
 import itemData from '../Data/items.data'
 import itemPage from '../Page/item.page'
+import auth from '../Page/auth.page'
+
 
 describe('Search test cases', () => {
     beforeEach(() => {
       cy.visit('/')
         
       //Login to account
-        cy.get("#login-text").should('contain', 'Welcome to the Automation Camp Store');
-        cy.get("#signInOrRegister").click();    
-        cy.get("[name='email']").type("rrrtester011@test.com");
-        cy.get("[name='password']").type("Password@1");
-        cy.get("[name='submit']").click();
+      cy.get(auth.registerBtn).click();
+      auth.signIn('rrrtester011@test.com', 'Password@1')
+        // cy.get("#login-text").should('contain', 'Welcome to the Automation Camp Store');
+        // cy.get("#signInOrRegister").click();    
+        // cy.get("[name='email']").type("rrrtester011@test.com");
+        // cy.get("[name='password']").type("Password@1");
+        // cy.get("[name='submit']").click();
 
     })
   
     it('Verify user can filter by category', () => {
 
-        cy.get('#category').select(1);
+        cy.get(itemPage.category).select(1);
         cy.wait(3000)
-        cy.get('.css-1ccau2i').should('contain', 'shirt');
-        cy.get('.css-1ccau2i').contains('hat').should('not.exist');
-        cy.get('.css-1ccau2i').contains('pants').should('not.exist');
-        cy.get('.css-1ccau2i').contains('shoes').should('not.exist');
-        cy.get('.css-1ccau2i').contains('couch').should('not.exist');
-        cy.get('.css-1ccau2i').contains('laptop').should('not.exist');
+        cy.get(itemPage.itemText).should('contain', 'shirt');
+        cy.get(itemPage.itemText).contains('hat').should('not.exist');
+        cy.get(itemPage.itemText).contains('pants').should('not.exist');
+        cy.get(itemPage.itemText).contains('shoes').should('not.exist');
+        cy.get(itemPage.itemText).contains('couch').should('not.exist');
+        cy.get(itemPage.itemText).contains('laptop').should('not.exist');
     })
 
     it('should be able to sort product list from A to Z', () => {
         
-        cy.get('#category').select(1);
+        cy.get(itemPage.category).select(1);
         cy.wait(3000)
         itemPage.selectSort(itemData.sort['A to Z'])
 
@@ -43,7 +47,7 @@ describe('Search test cases', () => {
 
     it('should be able to sort product list from Z to A', () => {
         
-        cy.get('#category').select(1);
+        cy.get(itemPage.category).select(1);
         cy.wait(3000)
         itemPage.selectSort(itemData.sort['Z to A'])
 
